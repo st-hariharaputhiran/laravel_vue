@@ -76,7 +76,7 @@ export default {
             this.loading = true
             this.failure = false
             this.success = false
-            
+            //console.log(this.token);
             // Register the user
             let user = {
                 email: this.email,

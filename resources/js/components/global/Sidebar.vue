@@ -36,17 +36,6 @@
                         role="menu"
                         data-accordion="false"
                     >
-                        <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a
-                                href="https://adminlte.io/docs/3.0"
-                                class="nav-link active"
-                            >
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
 
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -60,7 +49,7 @@
                                 <li class="nav-item">
                                     <router-link
                                         exact-active-class="active"
-                                        to="/category"
+                                        to="/Category"
                                         class="nav-item nav-link"
                                         >Category Lists
                                         <i class="far fa-circle nav-icon"></i
@@ -69,7 +58,7 @@
                                 <li class="nav-item">
                                     <router-link
                                         exact-active-class="active"
-                                        to="/category/add"
+                                        to="/Category/add"
                                         class="nav-item nav-link"
                                         >Add Category
                                         <i class="far fa-circle nav-icon"></i

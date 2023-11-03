@@ -1867,13 +1867,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  computed: {
-    currentRoute: {
-      get: function get() {
-        this.nombreRuta = this.$route.name;
-      }
-    }
-  },
   mounted: function mounted() {
     // Load Js Files
     var jquery = document.createElement("script");
@@ -1892,8 +1885,8 @@ __webpack_require__.r(__webpack_exports__);
     overlayScrollBars.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.10.1/js/jquery.overlayScrollbars.min.js");
     overlayScrollBars.async = true;
     document.body.appendChild(overlayScrollBars);
-    console.log("ROUTE", this.currentRoute);
-    if (this.$route.name == "home") {
+    console.log("ROUTE", this.$route.path);
+    if (this.$route.path == "/home") {
       this.temp.side = true;
       this.temp.nav = true;
     }
@@ -1949,7 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       this.failure = false;
       this.success = false;
-
+      //console.log(this.token);
       // Register the user
       var user = {
         email: this.email,
@@ -2344,17 +2337,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm.nav ? _c("Navbar", {
+  return _c("div", [_vm.temp.nav ? _c("Navbar", {
     attrs: {
       user: _vm.user
     }
-  }) : _vm._e(), _vm._v(" "), _vm.side ? _c("Sidebar", {
+  }) : _vm._e(), _vm._v(" "), _vm.temp.side ? _c("Sidebar", {
     attrs: {
       user: _vm.user
     }
-  }) : _vm._e(), _vm._v(" "), _c("div", {
+  }) : _vm._e(), _vm._v(" "), _vm.temp.nav ? _c("div", {
     staticClass: "content-wrapper"
-  }), _vm._v(" "), _c("Footer")], 1);
+  }) : _vm._e(), _vm._v(" "), _vm.temp.nav ? _c("Footer") : _vm._e()], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -3226,9 +3219,9 @@ var render = function render() {
       role: "menu",
       "data-accordion": "false"
     }
-  }, [_vm._m(2), _vm._v(" "), _c("li", {
+  }, [_c("li", {
     staticClass: "nav-item has-treeview"
-  }, [_vm._m(3), _vm._v(" "), _c("ul", {
+  }, [_vm._m(2), _vm._v(" "), _c("ul", {
     staticClass: "nav nav-treeview",
     staticStyle: {
       display: "none"
@@ -3239,7 +3232,7 @@ var render = function render() {
     staticClass: "nav-item nav-link",
     attrs: {
       "exact-active-class": "active",
-      to: "/category"
+      to: "/Category"
     }
   }, [_vm._v("Category Lists\n                                    "), _c("i", {
     staticClass: "far fa-circle nav-icon"
@@ -3249,7 +3242,7 @@ var render = function render() {
     staticClass: "nav-item nav-link",
     attrs: {
       "exact-active-class": "active",
-      to: "/category/add"
+      to: "/Category/add"
     }
   }, [_vm._v("Add Category\n                                    "), _c("i", {
     staticClass: "far fa-circle nav-icon"
@@ -3287,19 +3280,6 @@ var staticRenderFns = [function () {
       alt: "User Image"
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("li", {
-    staticClass: "nav-item"
-  }, [_c("a", {
-    staticClass: "nav-link active",
-    attrs: {
-      href: "https://adminlte.io/docs/3.0"
-    }
-  }, [_c("i", {
-    staticClass: "nav-icon fas fa-tachometer-alt"
-  }), _vm._v(" "), _c("p", [_vm._v("Dashboard")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -3511,15 +3491,15 @@ var routes = [{
   component: Home
 }, {
   name: "categoryList",
-  path: "/category",
+  path: "/Category",
   component: CategoryList
 }, {
   name: "categoryEdit",
-  path: "/category/:id/edit",
+  path: "/Category/:id/edit",
   component: CategoryEdit
 }, {
   name: "categoryAdd",
-  path: "/category/add",
+  path: "/Category/add",
   component: CategoryCreate
 }];
 

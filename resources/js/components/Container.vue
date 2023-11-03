@@ -1,11 +1,11 @@
 <template>
     <div>
-        <Navbar v-if="nav" :user="user" />
+        <Navbar v-if="temp.nav" :user="user" />
 
-        <Sidebar v-if="side" :user="user" />
+        <Sidebar v-if="temp.side" :user="user" />
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper"></div>
-        <Footer />
+        <div v-if="temp.nav" class="content-wrapper"></div>
+        <Footer v-if="temp.nav"/>
     </div>
 </template>
 
@@ -24,13 +24,6 @@ export default {
                 nav: false
             }
         };
-    },
-    computed: {
-        currentRoute: {
-            get() {
-                this.nombreRuta = this.$route.name;
-            }
-        }
     },
     mounted() {
         // Load Js Files
@@ -65,8 +58,8 @@ export default {
         );
         overlayScrollBars.async = true;
         document.body.appendChild(overlayScrollBars);
-        console.log("ROUTE", this.currentRoute);
-        if (this.$route.name == "home") {
+        console.log("ROUTE", this.$route.path);
+        if (this.$route.path == "/home") {
             this.temp.side = true;
             this.temp.nav = true;
         }

@@ -40,6 +40,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.showCategory();
+    this.getUser();
   },
   methods: {
     showCategory: function showCategory() {
@@ -84,6 +85,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _context2.stop();
           }
         }, _callee2);
+      }))();
+    },
+    getUser: function getUser() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return _this3.axios.get('api/user').then(function (response) {
+                console.log("RESPONSE", response.body);
+              });
+            case 2:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3);
       }))();
     }
   }

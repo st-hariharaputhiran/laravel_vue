@@ -26,8 +26,12 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/without/breadcrumbs', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-    Route::resource('posts', PostController::class);
+    //Route::resource('category',App\Http\Controllers\CategoryController::class)->only(['index','store','show','update','destroy']);
 });
+
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
 
 Route::fallback(function () {
     abort(404);

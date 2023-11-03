@@ -102,6 +102,7 @@ export default {
     },
     mounted() {
         this.getCategories();
+        this.getUser();
     },
     methods: {
         async getCategories() {
@@ -126,6 +127,11 @@ export default {
                         console.log(error);
                     });
             }
+        },
+        async getUser() {
+            await this.axios.get('api/user').then(response => {
+                console.log("RESPONSE",response.body);
+            });
         }
     }
 };

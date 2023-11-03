@@ -73,6 +73,9 @@ export default {
             }
         };
     },
+    mounted() {
+        this.getUser();
+    },
     methods: {
         async create() {
             await this.axios
@@ -83,7 +86,15 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+        },
+
+        async getUser() {
+            await this.axios.get('api/user').then(response => {
+                console.log("RESPONSE",response.body);
+            });
         }
-    }
+
+    
+}
 };
 </script>

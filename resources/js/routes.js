@@ -23,17 +23,17 @@ export const routes = [
     },
     {
         name: "categoryList",
-        path: "/category",
+        path: "/Category",
         component: CategoryList
     },
     {
         name: "categoryEdit",
-        path: "/category/:id/edit",
+        path: "/Category/:id/edit",
         component: CategoryEdit
     },
     {
         name: "categoryAdd",
-        path: "/category/add",
+        path: "/Category/add",
         component: CategoryCreate
     }
 ];

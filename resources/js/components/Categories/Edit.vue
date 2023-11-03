@@ -76,6 +76,7 @@ export default {
     },
     mounted() {
         this.showCategory();
+        this.getUser();
     },
     methods: {
         async showCategory() {
@@ -99,6 +100,11 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        async getUser() {
+            await this.axios.get('api/user').then(response => {
+                console.log("RESPONSE",response.body);
+            });
         }
     }
 };
